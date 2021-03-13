@@ -3,7 +3,7 @@
 
 Name:           cabal-install
 Version:        3.0.0.0
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        The command-line interface for Cabal and Hackage
 
 License:        BSD
@@ -70,7 +70,7 @@ installation of Haskell libraries and programs.
 %prep
 # Begin cabal-rpm setup:
 %setup -q
-chmod a-x README.md changelog
+chmod a-x README.md
 # End cabal-rpm setup
 
 %build
