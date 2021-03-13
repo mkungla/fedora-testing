@@ -108,6 +108,9 @@ install -pm 644 -D -t %{buildroot}%{_sysconfdir}/profile.d/ %{SOURCE10}
 
 
 %changelog
+* Sat Mar 13 2021 Marko Kungla <marko.kungla@gmail.com> 3.0.0.0-4
+- new package built with tito
+
 * Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 3.0.0.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
