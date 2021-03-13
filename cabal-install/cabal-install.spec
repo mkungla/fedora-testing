@@ -13,9 +13,9 @@ Source0:        https://hackage.haskell.org/package/%{name}-%{version}/%{name}-%
 # End cabal-rpm sources
 Source10:       cabal-install.sh
 # backport fix from https://github.com/haskell/cabal/issues/5813
-Patch0:         cabal-install-sdist-file-permissions.patch
+Patch0:         cabal-install/cabal-install-sdist-file-permissions.patch
 # upstream patch copied from Debian
-Patch1:         cabal-install-hackage-security-0.6.patch
+Patch1:         cabal-install/cabal-install-hackage-security-0.6.patch
 
 # Begin cabal-rpm deps:
 BuildRequires:  ghc-rpm-macros
@@ -108,6 +108,9 @@ install -pm 644 -D -t %{buildroot}%{_sysconfdir}/profile.d/ %{SOURCE10}
 
 
 %changelog
+* Sat Mar 13 2021 Marko Kungla <marko.kungla@gmail.com> 3.0.0.0-4
+- new package built with tito
+
 * Sat Mar 13 2021 Marko Kungla <marko.kungla@gmail.com> 3.0.0.0-4
 - new package built with tito
 
