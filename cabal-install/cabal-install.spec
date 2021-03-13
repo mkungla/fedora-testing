@@ -3,7 +3,7 @@
 
 Name:           cabal-install
 Version:        3.0.0.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        The command-line interface for Cabal and Hackage
 
 License:        BSD
@@ -12,10 +12,6 @@ Url:            https://hackage.haskell.org/package/%{name}
 Source0:        https://hackage.haskell.org/package/%{name}-%{version}/%{name}-%{version}.tar.gz
 # End cabal-rpm sources
 Source10:       cabal-install.sh
-# backport fix from https://github.com/haskell/cabal/issues/5813
-Patch0:         cabal-install/cabal-install-sdist-file-permissions.patch
-# upstream patch copied from Debian
-Patch1:         cabal-install/cabal-install-hackage-security-0.6.patch
 
 # Begin cabal-rpm deps:
 BuildRequires:  ghc-rpm-macros
@@ -76,9 +72,6 @@ installation of Haskell libraries and programs.
 %setup -q
 chmod a-x README.md changelog
 # End cabal-rpm setup
-%patch0 -p1 -b .orig
-%patch1 -p1 -b .orig
-
 
 %build
 # Begin cabal-rpm build:
