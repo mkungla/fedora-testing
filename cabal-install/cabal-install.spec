@@ -3,7 +3,7 @@
 
 Name:           cabal-install
 Version:        3.0.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The command-line interface for Cabal and Hackage
 
 License:        BSD
@@ -84,6 +84,12 @@ chmod a-x README.md changelog
 
 
 %changelog
+* Sat Mar 13 2021 Marko Kungla <marko.kungla@gmail.com> 3.0.0.0-2
+- 
+
+* Sat Mar 13 2021 Marko Kungla <marko.kungla@gmail.com>
+- 
+
 * Sat Mar 13 2021 Marko Kungla <marko.kungla@gmail.com> 3.0.0.0-1
 - 
 
