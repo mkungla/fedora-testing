@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tags:
+  - classic
+  roles:
+  - role: standard-test-basic
+    required_packages:
+    - cabal-install
+    tests:
+    - help:
+        run: cabal --help
+    - update:
+        run: cabal update
+...

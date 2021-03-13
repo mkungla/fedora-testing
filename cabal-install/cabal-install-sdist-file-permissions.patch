@@ -1,0 +1,26 @@
+--- cabal-install-2.4.1.0/Distribution/Client/CmdSdist.hs.orig	1970-01-01 07:30:00.000000000 +0730
++++ cabal-install-2.4.1.0/Distribution/Client/CmdSdist.hs	2020-04-14 13:08:58.730089942 +0800
+@@ -84,7 +84,8 @@
+ import qualified Data.Set as Set
+ import System.Directory
+     ( getCurrentDirectory, setCurrentDirectory
+-    , createDirectoryIfMissing, makeAbsolute )
++    , createDirectoryIfMissing, makeAbsolute
++    , getPermissions, executable )
+ import System.FilePath
+     ( (</>), (<.>), makeRelative, normalise, takeDirectory )
+
+@@ -269,10 +270,11 @@
+                             Right path -> tell [Tar.directoryEntry path]
+
+                         forM_ files $ \(perm, file) -> do
++                            realPerm <- liftIO $ getPermissions file
+                             let fileDir = takeDirectory (prefix </> file)
+                                 perm' = case perm of
+-                                    Exec -> Tar.executableFilePermissions
+-                                    NoExec -> Tar.ordinaryFilePermissions
++                                    Exec | executable realPerm -> Tar.executableFilePermissions
++                                    _                          -> Tar.ordinaryFilePermissions
+                             needsEntry <- gets (Set.notMember fileDir)
+
+                             when needsEntry $ do
